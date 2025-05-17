@@ -47,7 +47,7 @@ const PredictionsPage = () => {
                     >
                       <Select
                         showSearch
-                        className="rounded-lg border-primary-100"
+                        className="rounded-lg border-primary-100 !w-full h-[200px]"
                         size="large"
                         placeholder="Sélectionnez un point de départ"
                         filterOption={(input, option) =>
@@ -62,11 +62,11 @@ const PredictionsPage = () => {
                             value={place.id}
                             label={place.name}
                           >
-                            <div className="flex flex-col">
-                              <span className="font-medium text-text-100">
+                            <div className="flex flex-col truncate">
+                              <span className="font-medium text-text-100 truncate">
                                 {place.name}
                               </span>
-                              <span className="text-xs text-text-200">
+                              <span className="text-xs text-text-200 truncate">
                                 {place.address}
                               </span>
                             </div>
@@ -87,7 +87,7 @@ const PredictionsPage = () => {
                       ]}
                     >
                       <Select
-                        className="rounded-lg border-primary-100"
+                        className="rounded-lg border-primary-100 !w-full"
                         size="large"
                         placeholder="Sélectionnez un point d'arrivée"
                         showSearch
@@ -103,11 +103,11 @@ const PredictionsPage = () => {
                             value={place.id}
                             label={place.name}
                           >
-                            <div className="flex flex-col">
-                              <span className="font-medium text-text-100">
+                            <div className="flex flex-col truncate">
+                              <span className="font-medium text-text-100 truncate">
                                 {place.name}
                               </span>
-                              <span className="text-xs text-text-200">
+                              <span className="text-xs text-text-200 truncate">
                                 {place.address}
                               </span>
                             </div>
@@ -125,6 +125,7 @@ const PredictionsPage = () => {
                     >
                       <Select
                         className="rounded-lg border-primary-100"
+                        size="large"
                         options={weatherOptions.map((opt) => ({
                           ...opt,
                           label: (
@@ -148,6 +149,7 @@ const PredictionsPage = () => {
                     >
                       <Select
                         className="rounded-lg border-primary-100"
+                        size="large"
                         options={constructionOptions.map((opt) => ({
                           ...opt,
                           label: (
@@ -171,6 +173,7 @@ const PredictionsPage = () => {
                     >
                       <Select
                         className="rounded-lg border-primary-100"
+                        size="large"
                         options={eventOptions.map((opt) => ({
                           ...opt,
                           label: (
