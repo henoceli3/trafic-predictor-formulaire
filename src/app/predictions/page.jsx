@@ -10,7 +10,7 @@ import { useRoutes } from "@/hooks/useRoutes";
 import { motion } from "framer-motion";
 
 const PredictionsPage = () => {
-  const { loading, onFinish, results } = useRoutes();
+  const { loading, onFinish, results, bestRoute } = useRoutes();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 py-12">
@@ -196,8 +196,23 @@ const PredictionsPage = () => {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <List.Item className="border rounded-xl p-4 mb-4 hover:bg-blue-50 transition-colors">
-                        <div className="w-full p-4 ">
+                      <List.Item
+                        className={`
+                          border rounded-xl p-4 mb-4 
+                          ${
+                            item.index - 1 === bestRoute
+                              ? "ring-2 ring-green-500 shadow-lg relative bg-green-50/50"
+                              : "hover:bg-gray-50"
+                          }
+                          transition-all duration-200
+                        `}
+                      >
+                        <div className="w-full p-4">
+                          {item.index - 1 === bestRoute && (
+                            <div className="absolute top-2 right-2 bg-green-500 text-white px-3 py-1 rounded-full text-sm">
+                              Meilleur itinéraire
+                            </div>
+                          )}
                           <div className="flex items-center mb-4">
                             <h3 className="text-lg font-semibold text-gray-800">
                               Itinéraire {item.index}

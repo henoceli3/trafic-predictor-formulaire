@@ -12,6 +12,7 @@ const PREDICT_URL = "http://localhost:8000/predict_batch";
 export const useRoutes = () => {
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState<any[]>([]);
+  const [bestRoute, setBestRoute] = useState<number | null>(null);
 
   const getCommuneFromPlace = (placeId: string) => {
     const place = mockPlaces.find((p) => p.id === placeId);
@@ -167,6 +168,7 @@ export const useRoutes = () => {
         results[0]
       );
 
+      setBestRoute(best.index - 1);
       setResults(results);
     } catch (err) {
       console.error(err);
@@ -183,6 +185,7 @@ export const useRoutes = () => {
     buildContext,
     onFinish,
     setLoading,
+    bestRoute,
     results,
   };
 };
