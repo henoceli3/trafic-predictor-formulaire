@@ -8,9 +8,17 @@ import {
 import { Form, Select, Button, Card, List, Alert } from "antd";
 import { useRoutes } from "@/hooks/useRoutes";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 const PredictionsPage = () => {
   const { loading, onFinish, results, bestRoute } = useRoutes();
+  const [selectedRoute, setSelectedRoute] = useState(null);
+
+  useEffect(() => {
+    if (bestRoute !== null) {
+      setSelectedRoute(bestRoute);
+    }
+  }, [bestRoute]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background-100 to-background-200 py-12">
@@ -226,8 +234,14 @@ const PredictionsPage = () => {
                                   ? "ring-2 ring-primary-100 shadow-lg relative bg-background-200"
                                   : "hover:bg-background-100"
                               }
+                              ${
+                                item.index - 1 === selectedRoute
+                                  ? "ring-2 ring-accent-200"
+                                  : ""
+                              }
                               transition-all duration-200
                             `}
+                            onClick={() => setSelectedRoute(item.index - 1)}
                           >
                             <div className="w-full p-4">
                               {item.index - 1 === bestRoute && (
