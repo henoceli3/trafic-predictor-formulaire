@@ -13,21 +13,21 @@ const PredictionsPage = () => {
   const { loading, onFinish, results, bestRoute } = useRoutes();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-background-100 to-background-200 py-12">
       <div className="container max-w-[1400px] mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-3xl font-bold text-gray-800 mb-8 text-center">
-            Prédiction du Trafic<span className="text-blue-500">.</span>
+          <h1 className="text-3xl font-bold text-text-100 mb-8 text-center">
+            Prédiction du Trafic<span className="text-primary-200">.</span>
           </h1>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Colonne de gauche pour le formulaire */}
             <div className="space-y-8">
-              <Card className="shadow-lg rounded-xl border-0 backdrop-blur-sm bg-white/90">
+              <Card className="shadow-lg rounded-xl border-0 backdrop-blur-sm bg-background-100/90">
                 <Form
                   layout="vertical"
                   onFinish={onFinish}
@@ -36,7 +36,7 @@ const PredictionsPage = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <Form.Item
                       label={
-                        <span className="text-gray-700 font-medium">
+                        <span className="text-text-200 font-medium">
                           Point de départ
                         </span>
                       }
@@ -47,7 +47,7 @@ const PredictionsPage = () => {
                     >
                       <Select
                         showSearch
-                        className="rounded-lg"
+                        className="rounded-lg border-primary-100"
                         size="large"
                         placeholder="Sélectionnez un point de départ"
                         filterOption={(input, option) =>
@@ -63,8 +63,10 @@ const PredictionsPage = () => {
                             label={place.name}
                           >
                             <div className="flex flex-col">
-                              <span className="font-medium">{place.name}</span>
-                              <span className="text-xs text-gray-500">
+                              <span className="font-medium text-text-100">
+                                {place.name}
+                              </span>
+                              <span className="text-xs text-text-200">
                                 {place.address}
                               </span>
                             </div>
@@ -75,7 +77,7 @@ const PredictionsPage = () => {
 
                     <Form.Item
                       label={
-                        <span className="text-gray-700 font-medium">
+                        <span className="text-text-200 font-medium">
                           Point d&apos;arrivée
                         </span>
                       }
@@ -85,7 +87,7 @@ const PredictionsPage = () => {
                       ]}
                     >
                       <Select
-                        className="rounded-lg"
+                        className="rounded-lg border-primary-100"
                         size="large"
                         placeholder="Sélectionnez un point d'arrivée"
                         showSearch
@@ -102,8 +104,10 @@ const PredictionsPage = () => {
                             label={place.name}
                           >
                             <div className="flex flex-col">
-                              <span className="font-medium">{place.name}</span>
-                              <span className="text-xs text-gray-500">
+                              <span className="font-medium text-text-100">
+                                {place.name}
+                              </span>
+                              <span className="text-xs text-text-200">
                                 {place.address}
                               </span>
                             </div>
@@ -114,13 +118,13 @@ const PredictionsPage = () => {
 
                     <Form.Item
                       label={
-                        <span className="text-gray-700 font-medium">Météo</span>
+                        <span className="text-text-200 font-medium">Météo</span>
                       }
                       name="meteo"
                       initialValue="ensoleille"
                     >
                       <Select
-                        className="rounded-lg"
+                        className="rounded-lg border-primary-100"
                         options={weatherOptions.map((opt) => ({
                           ...opt,
                           label: (
@@ -135,7 +139,7 @@ const PredictionsPage = () => {
 
                     <Form.Item
                       label={
-                        <span className="text-gray-700 font-medium">
+                        <span className="text-text-200 font-medium">
                           Chantier
                         </span>
                       }
@@ -143,7 +147,7 @@ const PredictionsPage = () => {
                       initialValue="non"
                     >
                       <Select
-                        className="rounded-lg"
+                        className="rounded-lg border-primary-100"
                         options={constructionOptions.map((opt) => ({
                           ...opt,
                           label: (
@@ -158,7 +162,7 @@ const PredictionsPage = () => {
 
                     <Form.Item
                       label={
-                        <span className="text-gray-700 font-medium">
+                        <span className="text-text-200 font-medium">
                           Événement
                         </span>
                       }
@@ -166,7 +170,7 @@ const PredictionsPage = () => {
                       initialValue="aucun"
                     >
                       <Select
-                        className="rounded-lg"
+                        className="rounded-lg border-primary-100"
                         options={eventOptions.map((opt) => ({
                           ...opt,
                           label: (
@@ -185,7 +189,7 @@ const PredictionsPage = () => {
                       type="primary"
                       htmlType="submit"
                       loading={loading}
-                      className="w-full md:w-auto bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 rounded-lg h-12 font-medium text-base px-8"
+                      className="w-full md:w-auto bg-gradient-to-r from-primary-100 to-primary-200 hover:from-primary-200 hover:to-primary-300 rounded-lg h-12 font-medium text-base px-8"
                     >
                       Calculer les itinéraires
                     </Button>
@@ -201,7 +205,7 @@ const PredictionsPage = () => {
                 >
                   <Card
                     title="Itinéraires proposés"
-                    className="shadow-lg rounded-xl border-0 backdrop-blur-sm bg-white/90"
+                    className="shadow-lg rounded-xl border-0 backdrop-blur-sm bg-background-100/90"
                   >
                     <List
                       dataSource={results}
@@ -216,15 +220,15 @@ const PredictionsPage = () => {
                               border rounded-xl p-4 mb-4 cursor-pointer
                               ${
                                 item.index - 1 === bestRoute
-                                  ? "ring-2 ring-green-500 shadow-lg relative bg-green-50/50"
-                                  : "hover:bg-gray-50"
+                                  ? "ring-2 ring-primary-100 shadow-lg relative bg-background-200"
+                                  : "hover:bg-background-100"
                               }
                               transition-all duration-200
                             `}
                           >
                             <div className="w-full p-4">
                               {item.index - 1 === bestRoute && (
-                                <div className="absolute top-2 right-2 bg-green-500 text-white px-3 py-1 rounded-full text-sm">
+                                <div className="absolute top-2 right-2 bg-primary-100 text-background-100 px-3 py-1 rounded-full text-sm">
                                   Meilleur itinéraire
                                 </div>
                               )}
@@ -235,10 +239,10 @@ const PredictionsPage = () => {
                                 <div
                                   className={`ml-4 px-3 py-1 rounded-full text-sm ${
                                     item.avg < 2
-                                      ? "bg-green-100 text-green-700"
+                                      ? "bg-primary-100 text-background-100"
                                       : item.avg < 3.5
-                                      ? "bg-yellow-100 text-yellow-700"
-                                      : "bg-red-100 text-red-700"
+                                      ? "bg-accent-200 text-background-100"
+                                      : "bg-text-300 text-background-100"
                                   }`}
                                 >
                                   {item.avg < 2
@@ -249,25 +253,25 @@ const PredictionsPage = () => {
                                 </div>
                               </div>
                               <div className="grid grid-cols-3 gap-6">
-                                <div className="bg-gray-50 rounded-lg p-4">
-                                  <p className="text-gray-500 text-sm">
+                                <div className="bg-background-200 rounded-lg p-4">
+                                  <p className="text-text-200 text-sm">
                                     Congestion
                                   </p>
-                                  <p className="font-semibold text-xl">
+                                  <p className="font-semibold text-text-100 text-xl">
                                     {item.avg.toFixed(1)}/5
                                   </p>
                                 </div>
-                                <div className="bg-gray-50 rounded-lg p-4">
-                                  <p className="text-gray-500 text-sm">Durée</p>
-                                  <p className="font-semibold text-xl">
+                                <div className="bg-background-200 rounded-lg p-4">
+                                  <p className="text-text-200 text-sm">Durée</p>
+                                  <p className="font-semibold text-text-100 text-xl">
                                     {Math.round(item.duration / 60)} min
                                   </p>
                                 </div>
-                                <div className="bg-gray-50 rounded-lg p-4">
-                                  <p className="text-gray-500 text-sm">
+                                <div className="bg-background-200 rounded-lg p-4">
+                                  <p className="text-text-200 text-sm">
                                     Distance
                                   </p>
-                                  <p className="font-semibold text-xl">
+                                  <p className="font-semibold text-text-100 text-xl">
                                     {(item.distance / 1000).toFixed(1)} km
                                   </p>
                                 </div>
@@ -284,10 +288,10 @@ const PredictionsPage = () => {
 
             {/* Colonne de droite pour la carte */}
             <div className="lg:sticky lg:top-8 h-[calc(100vh-6rem)]">
-              <Card className="shadow-lg rounded-xl border-0 backdrop-blur-sm bg-white/90 h-full">
-                <div className="w-full h-full bg-gray-100 rounded-lg">
+              <Card className="shadow-lg rounded-xl border-0 backdrop-blur-sm bg-background-100/90 h-full">
+                <div className="w-full h-full bg-background-200 rounded-lg">
                   {/* Espace réservé pour la carte */}
-                  <div className="w-full h-full flex items-center justify-center text-gray-500">
+                  <div className="w-full h-full flex items-center justify-center text-text-200">
                     Carte à implémenter
                   </div>
                 </div>

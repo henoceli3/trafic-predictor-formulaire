@@ -18,7 +18,9 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={inter.className}>
-        <ConfigProvider>{children}</ConfigProvider>
+        <ConfigProvider theme={{ token: { colorPrimary: "#007f5f" } }}>
+          {children}
+        </ConfigProvider>
       </body>
     </html>
   );
