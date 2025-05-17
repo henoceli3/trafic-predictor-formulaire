@@ -129,9 +129,9 @@ const PredictionsPage = () => {
                         <span className="text-text-200 font-medium">Météo</span>
                       }
                       name="meteo"
-                      initialValue="ensoleille"
                     >
                       <Select
+                        placeholder="Sélectionnez une condition météo"
                         className="rounded-lg border-primary-100"
                         size="large"
                         options={weatherOptions.map((opt) => ({
@@ -153,9 +153,9 @@ const PredictionsPage = () => {
                         </span>
                       }
                       name="chantier"
-                      initialValue="non"
                     >
                       <Select
+                        placeholder="Y a-t-il un chantier ?"
                         className="rounded-lg border-primary-100"
                         size="large"
                         options={constructionOptions.map((opt) => ({
@@ -177,9 +177,9 @@ const PredictionsPage = () => {
                         </span>
                       }
                       name="evenement"
-                      initialValue="aucun"
                     >
                       <Select
+                        placeholder="Y a-t-il un événement ?"
                         className="rounded-lg border-primary-100"
                         size="large"
                         options={eventOptions.map((opt) => ({
