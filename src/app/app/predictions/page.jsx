@@ -21,7 +21,7 @@ const PredictionsPage = () => {
   }, [bestRoute]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background-100 to-background-200 py-12">
+    <div className="min-h-screen">
       <div className="container max-w-[1400px] mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ConfigProvider } from "antd";
 
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Prédicteur de trafic",
@@ -17,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr">
-      <body className={inter.className}>
+      <body className={'bg-orange-700'}>
         <ConfigProvider theme={{ token: { colorPrimary: "#007f5f" } }}>
           {children}
         </ConfigProvider>

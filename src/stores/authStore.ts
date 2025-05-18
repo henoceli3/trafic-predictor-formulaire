@@ -5,6 +5,10 @@ type User = {
   id: string;
   email: string;
   name: string;
+  first_name: string;
+  active: boolean;
+  createdAt: string;
+  updatedAt: string;
 };
 
 type AuthStore = {

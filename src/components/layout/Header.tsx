@@ -7,11 +7,21 @@ import {
   SettingOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Header = () => {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const menuItems = [
     {
@@ -41,7 +51,11 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white shadow-lg z-10">
+    <header
+      className={`w-full bg-white shadow-lg transition-all duration-300 ${
+        isScrolled ? "fixed top-0 z-50" : "relative"
+      }`}
+    >
       <div className="flex justify-between items-center px-4 py-2 max-w-[1400px] mx-auto">
         <div className="text-xl font-bold text-primary-100">
           Traffic Predictor

@@ -60,10 +60,11 @@ const LoginPage = (): JSX.Element => {
       if (response.data.access_token) {
         setToken(response.data.access_token);
         setUser(response.data.user);
+        router.push("/app/predictions");
+        message.success(
+          `Bienvenue ${response.data.user.name} ${response.data.user.first_name}!`
+        );
       }
-
-      router.push("/app/predictions");
-      message.success("Connexion réussie!");
     } catch (error: any) {
       message.error(
         error.response?.data?.message || "Erreur lors de la connexion"
