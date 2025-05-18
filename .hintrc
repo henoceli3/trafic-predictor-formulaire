@@ -10,5 +10,13 @@
     "not ios_saf <= 17.3",
     "not safari <= 17.3",
     "not samsung <= 22"
-  ]
+  ],
+  "hints": {
+    "axe/name-role-value": [
+      "default",
+      {
+        "button-name": "off"
+      }
+    ]
+  }
 }

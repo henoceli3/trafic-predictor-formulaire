@@ -20,7 +20,7 @@ const PredictionsPage = () => {
       : null;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 ">
       <div className="container max-w-5xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
