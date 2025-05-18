@@ -62,7 +62,7 @@ const LoginPage = (): JSX.Element => {
         setUser(response.data.user);
       }
 
-      router.push("/predictions");
+      router.push("/app/predictions");
       message.success("Connexion réussie!");
     } catch (error: any) {
       message.error(
